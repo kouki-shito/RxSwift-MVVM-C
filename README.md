@@ -1,6 +1,6 @@
 ## はじめに
 
-このリポジトリは、UIKit × RxSwift × Coordinatorを使用した際の参考リポジトリです。
+このリポジトリは、UIKit × RxSwift × Coordinatorを使用した際の実験・参考リポジトリです。
 
 分割Storyboardを採用しているので実務でも使いやすいと思います。
 
