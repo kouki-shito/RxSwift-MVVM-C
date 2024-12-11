@@ -10,14 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class FirstViewController: UIViewController,Storyboarded {
-    
-    @IBOutlet weak var nextButton: UIButton!
-    
-    //MARK: -Injection Properties
+class FirstViewController: UIViewController, Storyboarded {
+
+    @IBOutlet private weak var nextButton: UIButton!
+
+    // MARK: - Injection Properties
     private var viewModel: FirstViewModelType!
 
-    //MARK: -Private Properties
+    // MARK: - Private Properties
     private let disposeBag = DisposeBag()
 
     func inject(viewModelInj: FirstViewModelType) {
@@ -29,9 +29,9 @@ class FirstViewController: UIViewController,Storyboarded {
         bind()
     }
 
-    func bind(){
+    func bind() {
         nextButton.rx.tap
-            .subscribe({ [weak self] _ in
+            .subscribe({[weak self] _ in
                 self?.viewModel.inputs.buttonTapped.accept(())
             }).disposed(by: disposeBag)
     }

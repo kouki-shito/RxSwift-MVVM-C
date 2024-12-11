@@ -25,7 +25,7 @@ final class FirstViewCoordinator: Coordinator {
         let vc = FirstViewController.instantiate(name: "FirstView")
         let vm = FirstViewModel()
         vc.inject(viewModelInj: vm)
-        self.navigator.viewControllers = [vc] //RootVC only
+        self.navigator.viewControllers = [vc] // RootVC only
         self.firstViewController = vc
         self.firstViewModel = vm
         bind()
@@ -36,7 +36,7 @@ final class FirstViewCoordinator: Coordinator {
         nextCoordinator.start()
     }
 
-    func bind(){
+    func bind() {
         firstViewModel?.outputs.toSecondView
             .emit(onNext: {
                 self.next()
