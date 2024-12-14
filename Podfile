@@ -10,6 +10,8 @@ target 'RxSwift-MVVM-C' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'SwiftLint'
+  pod 'RxBlocking'
+  pod 'RxTest'
 
   target 'RxSwift-MVVM-CTests' do
     inherit! :search_paths

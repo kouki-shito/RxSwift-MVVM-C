@@ -14,7 +14,7 @@ final class FirstViewCoordinator: Coordinator {
 
     private let navigator: UINavigationController
     private var firstViewController: FirstViewController?
-    private var firstViewModel: FirstViewModelType?
+    private var viewModel: FirstViewModelType?
     private var disposeBag = DisposeBag()
 
     init(navigator: UINavigationController) {
@@ -27,7 +27,7 @@ final class FirstViewCoordinator: Coordinator {
         vc.inject(viewModelInj: vm)
         self.navigator.viewControllers = [vc] // RootVC only
         self.firstViewController = vc
-        self.firstViewModel = vm
+        self.viewModel = vm
         bind()
     }
 
@@ -37,7 +37,7 @@ final class FirstViewCoordinator: Coordinator {
     }
 
     func bind() {
-        firstViewModel?.outputs.toSecondView
+        viewModel?.outputs.toSecondView
             .emit(onNext: {
                 self.next()
             }).disposed(by: disposeBag)
